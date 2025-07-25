@@ -1,69 +1,8 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Real-Time Vitals DashboardThis is a responsive web app that simulates a user's vitals monitoring dashboard, built as a trial task. It displays heart rate, blood pressure, and pulse, updates them regularly, and shows alerts if vitals go too high. It also has an emergency button that sends an alert and disables itself after one use.FeaturesShows heart rate, blood pressure, and pulse in a clean, card-style layout. Updates vitals every few seconds using mock data (like a heartbeat monitor refreshing automatically). Displays a red alert (e.g., a blinking icon or box) if heart rate goes above 120 bpm. Includes an emergency button that shows "Alert sent" and disables after one click. Works on both desktop and mobile (responsive design).
 
-Currently, two official plugins are available:
+How It WorksData Updates: The app uses a timer (setInterval) to refresh vitals data every few seconds with fake data (like a sample JSON with heart rate, blood pressure, etc.). Alerts: If the heart rate crosses 120 bpm, a red warning (like a flashing icon) pops up to grab attention. Emergency Button: Clicking the button shows "Alert sent" and locks the button so it can't be clicked again. Responsive Design: The layout adjusts to look good on phones, tablets, or computers.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tech UsedFrontend: React(Vite) Styling: Bootstrap and Vanilla Css Data: Mock JSON data (no real WebSocket, just a timer for simulation).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Notes: This was built in a day to show my approach to building a simple, user-friendly interface with real-time updates and alerts. It’s not perfect but focuses on clear structure and functionality.
